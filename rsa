@@ -1,0 +1,27 @@
+#!/usr/bin/python3
+if __name__ == "__main__":
+    import sys
+    from math import sqrt
+
+    if len(sys.argv) != 2:
+        print("Error")
+        sys.exit()
+    def isprime(a):
+        q = int(sqrt(a))
+        for i in range(2, q + 1):
+            if a % i == 0:
+                return (0)
+        return (1)
+
+    def printt(a):
+        q = int(sqrt(a))
+        for i in range(2, q + 1):
+            if a % i == 0 and isprime(a // i):
+                print("{}={}*{}".format(a, a//i, i))
+                break
+
+
+    f = open(sys.argv[1], 'r')
+    for line in f:
+        printt(int(line))
+    f.close
